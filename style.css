@@ -72,7 +72,8 @@ img {
     height: 100%;
     width: 60%;
     float: right;
-
+    display: flex;
+    flex-direction: column;
     background-image: url(img/mine.jpg);
 }
 
@@ -211,11 +212,6 @@ img {
 
 /*SEZIONE DI DESTRA*/
 
-.right_section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 /*NAV CHAT*/
 
 .user_name  span {
@@ -227,10 +223,13 @@ img {
 
 .message {
     height: 60px;
-    width: 100%;
     line-height: 60px;
     background-color: #f3eee9;
     display: flex;
+    width: 60%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     justify-content: space-around;
 }
 
@@ -253,4 +252,39 @@ img {
 
 #microphone {
     margin-right: 10px;
+}
+
+/*CHAT MESSAGES*/
+
+.chat_msg {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.msg_received {
+    float: left;
+    margin: 50px 0;
+    width:fit-content ;
+    height: fit-content;
+    padding:  20px 80px 20px  20px;
+    font-size: 13px;
+    border-radius: 12px;
+    border: none;
+    background-color: white;
+}
+
+.msg_send {
+    margin: 100px 0;
+    float: right;
+    width:fit-content ;
+    height: fit-content;
+    padding:  20px 80px 20px  20px;
+    font-size: 13px;
+    border-radius: 12px;
+    border: none;
+    background-color: #d5f9ba;
+}
+
+.chat_msg h3 {
+    font-weight: 300;
 }
