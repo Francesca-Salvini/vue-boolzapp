@@ -114,3 +114,40 @@ img {
     color: #b1b1b1;
     align-self: center;
 }
+
+/*RICEVI NOTIFICHE*/
+
+.ricevi_notifiche {
+    height: 70px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    background-color: #8edafb;
+    position: relative;
+}
+
+.icona_campanella {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 14%;
+    left: 12px;
+}
+
+.icona_campanella i {
+    color: #8edafb;
+    font-size: 20px;
+    
+}
+
+.text {
+    font-size: 11px;
+}
+
+.text a {
+    display: block;
+    color: #6394a9;
+    margin: -32px;
+}
