@@ -65,9 +65,7 @@ img {
     height: 100%;
     width: 40%;
     float: left;
-
-    /*TEST*/
-    background-color: lightcoral;
+    background-color: #fafafa;
 }
 
 .right_section {
@@ -146,7 +144,7 @@ img {
 }
 
 .text {
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .text a {
@@ -161,7 +159,7 @@ img {
     height: 40px;
     width: 100%;
     line-height: 40px;
-    background-color: #e8ebea;
+    background-color: #fafafa;
     position: relative;
 }
 
@@ -178,6 +176,37 @@ img {
     position: absolute;
     left: 10px;
     height: 0px;
+}
+
+/*CHAT CON ALTRI CONTATTI*/
+
+.chat {
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    padding: 0 10px;
+}
+
+.avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.chat .nome_contatto {
+    align-self: center;
+    font-weight: 300;
+}
+
+.chat:hover {
+    background-color: #e8ebea;
 }
 
 /*SEZIONE DI DESTRA*/
