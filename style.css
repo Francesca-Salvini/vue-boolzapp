@@ -181,7 +181,7 @@ img {
 
 /*CHAT CON ALTRI CONTATTI*/
 
-.chat {
+/* .chat {
     height: 70px;
     width: 100%;
     background-color: white;
@@ -192,6 +192,37 @@ img {
 
 .avatar {
     padding: 0 10px;
+    
+
+}
+
+.chats  {
+    list-style-type: none;
+}
+
+.chats li {
+    display: block;
+}
+
+
+
+.chat .nome_contatto {
+    align-self: center;
+    font-weight: 300;
+}
+
+.chat:hover {
+    background-color: #e8ebea;
+} */
+
+ul {
+    list-style-type: none;
+}
+
+.avatar {
+    padding: 20px 10px;
+    margin: 3px 0;
+    background-color: white;
 }
 
 .avatar img {
@@ -201,12 +232,7 @@ img {
     background-color: white;
 }
 
-.chat .nome_contatto {
-    align-self: center;
-    font-weight: 300;
-}
-
-.chat:hover {
+.avatar:hover {
     background-color: #e8ebea;
 }
 

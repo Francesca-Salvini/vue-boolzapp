@@ -87,41 +87,15 @@
 
                     <!--Chat con altri contatti-->
                     <div class="chats">
-                        <!--single chat-->
-                        <div class="chat">
-                            <div class="avatar">
-                                <img src="img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="nome_contatto">Michele</div>
-                        </div>
-                        <!-- fine single chat-->
+                        <ul v-if="contacts.length > 0" class="chat">
+                            <li v-for="(contact, index) in contacts "class="avatar" >
+                                <img :src="pics[index]" alt="">
+                                {{contact.name}}
 
-                        <!--single chat-->
-                        <div class="chat">
-                            <div class="avatar">
-                                <img src="img/avatar_2.jpg" alt="">
-                            </div>
-                            <div class="nome_contatto">Fabio</div>
-                        </div>
-                        <!-- fine single chat-->
-
-                        <!--single chat-->
-                        <div class="chat">
-                            <div class="avatar">
-                                <img src="img/avatar_3.jpg" alt="">
-                            </div>
-                            <div class="nome_contatto">Samuele</div>
-                        </div>
-                        <!-- fine single chat-->
-
-                        <!--single chat-->
-                        <div class="chat">
-                            <div class="avatar">
-                                <img src="img/avatar_4.jpg" alt="">
-                            </div>
-                            <div class="nome_contatto">Luisa</div>
-                        </div>
-                        <!-- fine single chat-->
+                                
+                                
+                            </li>
+                        </ul>
                     </div>
 
                     <!--Fine Chat con altri contatti-->
@@ -163,13 +137,21 @@
 
                     <!--MESSAGGI CHAT-->
                     <div class="chat_msg clearfix">
-                        <div class="msg_received">
-                           <h3>La Marianna va in campagna</h3> 
-                           <p></p>
-                        </div>
-                        <div class="msg_send">
-                            <h3>Sicuro di non aver sbagliato chat?</h3> 
-                        </div>
+                        <ul v-if="status == 'received'">
+                            <li v-for="message in contacts" :key="message.message">
+                                <div class="msg_received">
+                                    {{message.messages}}
+                                    <p></p>
+                                 </div>
+                            </li>
+                            <li>
+                                <div class="msg_send">
+                                    <h3>Sicuro di non aver sbagliato chat?</h3> 
+                                </div>
+                            </li>
+                        </ul>
+                        
+                       
                         
                     </div>
                     <!--FINE MESSAGGI CHAT-->
