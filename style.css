@@ -5,3 +5,115 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*COMMON*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.clearfix::after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+img {
+    width: auto;
+    height: 40px;
+}
+
+/*BACKGROUND*/
+.container {
+    height: 100vh;
+    position: relative;
+}
+
+.first_color {
+    width: 100%;
+    height: 15vh;
+    background-color: #079588;
+
+}
+
+.second_color {
+    width: 100%;
+    height: 85vh;
+    background-image: linear-gradient(#dcdbd1, #d2dbdb);
+}
+
+/*CHATROOM*/
+
+.chat_room {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    /*TEST*/
+    height: 95vh;
+    background-color: white;
+}
+
+.left_section {
+    height: 100%;
+    width: 40%;
+    float: left;
+
+    /*TEST*/
+    background-color: lightcoral;
+}
+
+.right_section {
+    height: 100%;
+    width: 60%;
+    float: right;
+
+    /*TEST*/
+    background-color: lightskyblue;
+}
+
+/*USER INFO*/
+
+.user_info {
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #eaeaea;
+}
+
+.user .icon img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: contain ;
+    vertical-align: middle;
+    margin: 0 6px;
+}
+
+.user {
+    float: left;
+    display: flex;
+    vertical-align: middle;
+
+}
+
+.user_name {
+   align-self: center;
+   font-size: 13px;
+}
+
+.font_icons {
+    float: right;
+    
+    
+
+}
+
+.font_icons i {
+    margin: 0 6px;
+    color: #b1b1b1;
+    align-self: center;
+}
