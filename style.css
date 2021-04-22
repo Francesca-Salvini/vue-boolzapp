@@ -23,6 +23,10 @@ img {
     height: 40px;
 }
 
+.icons i {
+    padding: 0 6px;
+}
+
 /*BACKGROUND*/
 .container {
     height: 100vh;
@@ -71,8 +75,7 @@ img {
     width: 60%;
     float: right;
 
-    /*TEST*/
-    background-color: lightskyblue;
+    background-image: url(img/mine.jpg);
 }
 
 /*USER INFO*/
@@ -175,4 +178,50 @@ img {
     position: absolute;
     left: 10px;
     height: 0px;
+}
+
+/*SEZIONE DI DESTRA*/
+
+.right_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/*NAV CHAT*/
+
+.user_name  span {
+    color: #b1b1b1;
+    font-size: 10px;
+    position: absolute;
+    top: 14px;
+}
+
+.message {
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: #f3eee9;
+    display: flex;
+    justify-content: space-around;
+}
+
+.message input {
+    width: 80%;
+    height: 40px;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.message span i {
+    color: #6b7376;
+}
+
+#smile {
+    margin-left: 10px;
+}
+
+#microphone {
+    margin-right: 10px;
 }
