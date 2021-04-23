@@ -2,13 +2,8 @@ var app = new Vue (
     {
         el : '#root',
         data: {
-            
-            pics : [
-                'img/avatar_1.jpg',
-                'img/avatar_2.jpg',
-                'img/avatar_3.jpg',
-                'img/avatar_4.jpg'
-            ],
+            userNewValue : '',
+            activeContact : 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -96,6 +91,30 @@ var app = new Vue (
             ]
             
         } ,
-        methods: {} 
+        methods: {
+            setActiveContact(index){
+                this.activeContact = index;
+            },
+        
+            addNewMessage() {
+                
+            // se l'utente non compila ma clicca il tasto enter, non succede nulla (non pusha)
+            if(this.userNewValue.length > 0 ){
+                
+                this.userNewValue = {
+                
+                date : dayjs("DD/MM/YYYY HH:mm:ss"),
+                text : '',
+                status: 'sent'
+                }
+
+                console.log(userNewValue);
+                // this.contacts.messages.push(this.userNewValue);
+            }
+          
+        }
+        
     }
-);
+    }
+    
+    );

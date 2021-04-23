@@ -307,12 +307,12 @@ ul {
 }
 
 
-.msg_received {
+.received {
     float: left;
     background-color: white;
 }
 
-.msg_send {
+.sent {
     float: right;
     background-color: #d5f9ba;
 }

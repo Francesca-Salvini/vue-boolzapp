@@ -82,18 +82,15 @@
 
                     <!--Chat con altri contatti-->
                     <div class="chats">
-                        <ul v-if="contacts.length > 0" class="chat">
-                            <li v-for="(contact, index) in contacts "class="avatar" >
-                                <img :src="pics[index]" alt="">
-                                {{contact.name}}
-
-                                
-                                
+                        <ul class="chat">
+                            <li v-for="(contact, index) in contacts "class="avatar" :class="{ 'active' : index == activeContact }" @click="setActiveContact(index)">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                {{contact.name}}  
                             </li>
                         </ul>
                     </div>
 
-                    <!--Fine Chat con altri contatti-->
+                    <!--Fine Chat con altri con‰tatti-->
 
                 </div>
                 <!--Fine Sezione di sinistra-->
@@ -105,13 +102,13 @@
                         <div class="user ">
                             <!--Immagine del profilo utente-->
                             <div class="icon">
-                                <img src="img/avatar_io.jpg" alt="">
+                                <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" :alt="contacts[activeContact].name">
                             </div>
                             <!--Fine Immagine del profilo utente-->
                             <!--Nome utente-->
                             <div class="user_name">
                                 <div class="text">
-                                    Samuele
+                                    {{contacts[activeContact].name}}
                                 </div>
                                 <span>Ultimo accesso oggi alle </span>
                             </div>
@@ -132,38 +129,18 @@
 
                     <!--MESSAGGI CHAT-->
                     <div class="chat_msg clearfix">
-                        <div class="message_chat msg_received">
+                        <div v-for="message in contacts[activeContact].messages" class="message_chat" :class="message.status">
                             <div class="message-text ">
-                                Hai portato a spasso il cane?
+                                {{message.text}}
                             </div>
 
                             <div class="message-date">
-                                10/04/2010 23:34:12
+                                {{message.date}}
                             </div>
 
                         </div>
 
-                        <div class="message_chat msg_send">
-                            <div class="message-text ">
-                                Hai portato a spasso il cane?
-                            </div>
-
-                            <div class="message-date">
-                                10/04/2010 23:34:12
-                            </div>
-
-                        </div>
                         
-                        <div class="message_chat msg_received">
-                            <div class="message-text ">
-                                Hai portato a spasso il cane?
-                            </div>
-
-                            <div class="message-date">
-                                10/04/2010 23:34:12
-                            </div>
-
-                        </div>
                         
                     </div>
                     <!--FINE MESSAGGI CHAT-->
@@ -171,7 +148,7 @@
                     <!--Sezione scrittura messaggio-->
                     <div class="message">
                         <span><i id="smile" class="far fa-smile"></i></span>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input  v-model="userNewValue" @keyup.enter="addNewMessage" type="text" placeholder="Scrivi un messaggio">
                         <span><i id="microphone" class="fas fa-microphone"></i></span>
                     </div>
                     <!--Fine Sezione scrittura messaggio-->
@@ -184,6 +161,8 @@
        
     </div>
 
+    <!--DAY.JS-->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
     <!--JAVASCRIPT-->
     <script src="script.js"></script>
