@@ -120,7 +120,9 @@ var app = new Vue (
             
                 this.userNewValue = '';
 
-                setTimeout(function(){
+                console.log(this);
+                setTimeout(() => {
+                    console.log(this);
                     const newDefaultAnswer = {
                         date : dayjs().format("DD/MM/YYYY HH:mm:ss"),
                         text : 'ok',
