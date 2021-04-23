@@ -2,7 +2,7 @@ var app = new Vue (
     {
         el : '#root',
         data: {
-            defaultAnswer : 'ok',
+            
             userNewValue : '',
             activeContact : 0,
             contacts: [
@@ -119,6 +119,17 @@ var app = new Vue (
                 }
             
                 this.userNewValue = '';
+
+                setTimeout(function(){
+                    const newDefaultAnswer = {
+                        date : dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text : 'ok',
+                        status: 'received'
+                    }
+
+                    console.log(newDefaultAnswer);
+                    this.contacts[this.activeContact].messages.push(newDefaultAnswer);
+                }, 1000);
             },
         }
 
