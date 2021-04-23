@@ -2,6 +2,7 @@ var app = new Vue (
     {
         el : '#root',
         data: {
+            defaultAnswer : 'ok',
             userNewValue : '',
             activeContact : 0,
             contacts: [
@@ -98,26 +99,30 @@ var app = new Vue (
         
             addNewMessage() {
                 
+                
+                
+                // se l'utente non compila ma clicca il tasto enter, non succede nulla (non pusha)
+                if(this.userNewValue.length > 0 ){
+                    
+                    
+                    
+                    const newMessageObj = {
+                    
+                        date : dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                        text : this.userNewValue,
+                        status: 'sent'
+                    }
 
+                    console.log(newMessageObj);
+                    this.contacts[this.activeContact].messages.push(newMessageObj);
 
-            // se l'utente non compila ma clicca il tasto enter, non succede nulla (non pusha)
-            if(this.userNewValue.length > 0 ){
-                
-                
-                const newMessageObj = {
-                
-                date : dayjs().format("DD/MM/YYYY HH:mm:ss"),
-                text : this.userNewValue,
-                status: 'sent'
                 }
-
-                console.log(newMessageObj);
-                this.contacts[this.activeContact].messages.push(newMessageObj);
-            }
-          
+            
+                this.userNewValue = '';
+            },
         }
+
         
     }
-    }
     
-    );
+);
