@@ -26,11 +26,6 @@
 
         <!--Viewport-->
         <div class="container">
-            <!--Sfondo con due colori-->
-            <div class="background">
-                <div class="first_color"></div>
-                <div class="second_color"></div>
-            </div>
             
             <!--Chatroom-->
             <div class="chat_room clearfix">
@@ -137,7 +132,7 @@
 
                     <!--MESSAGGI CHAT-->
                     <div class="chat_msg clearfix">
-                        <ul v-if="status == 'received'">
+                        <ul >
                             <li v-for="message in contacts" :key="message.message">
                                 <div class="msg_received">
                                     {{message.messages}}
