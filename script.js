@@ -98,18 +98,21 @@ var app = new Vue (
         
             addNewMessage() {
                 
+
+
             // se l'utente non compila ma clicca il tasto enter, non succede nulla (non pusha)
             if(this.userNewValue.length > 0 ){
                 
-                this.userNewValue = {
                 
-                date : dayjs("DD/MM/YYYY HH:mm:ss"),
-                text : '',
+                const newMessageObj = {
+                
+                date : dayjs().format("DD/MM/YYYY HH:mm:ss"),
+                text : this.userNewValue,
                 status: 'sent'
                 }
 
-                console.log(userNewValue);
-                // this.contacts.messages.push(this.userNewValue);
+                console.log(newMessageObj);
+                this.contacts[this.activeContact].messages.push(newMessageObj);
             }
           
         }
