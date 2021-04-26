@@ -223,6 +223,7 @@ ul {
     padding: 20px 10px;
     margin: 3px 0;
     background-color: white;
+    position: relative;
 }
 
 .avatar img {
@@ -238,6 +239,31 @@ ul {
 
 .avatar.active {
     background-color: #e8ebea;
+    position: relative;
+}
+
+.contact_name {
+    display: inline-block;
+    position: absolute;
+    
+    left: 70px;
+}
+
+.last_message {
+    
+    font-size: 12px;
+    color: grey;
+    padding-top: 6px;
+    position: absolute;
+    top: 42px;
+    left: 70px;
+}
+
+.last_message_date {
+    
+    float: right;
+    color: grey;
+    font-size: 12px;
 }
 
 /*SEZIONE DI DESTRA*/
@@ -306,6 +332,38 @@ ul {
     position: relative;
 }
 
+.arrow {
+    display: none;
+    position: absolute;
+    right: 20px;
+    color: grey;
+    cursor: pointer;
+}
+
+.message_chat:hover .arrow {
+    display: block;
+}
+
+
+.options_message {
+    position: absolute;
+    right: 17px;
+    top: 100%;
+    background-color: white;
+    color: grey;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+    0 2px 4px rgba(0,0,0,0.07), 
+    0 4px 8px rgba(0,0,0,0.07), 
+    0 8px 16px rgba(0,0,0,0.07),
+    0 16px 32px rgba(0,0,0,0.07), 
+    0 32px 64px rgba(0,0,0,0.07);
+    z-index: 1;
+}
+
+.options_message li {
+    padding: 10px;
+    cursor: pointer;
+}
 
 .received {
     float: left;

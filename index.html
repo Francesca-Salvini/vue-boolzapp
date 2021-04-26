@@ -97,7 +97,13 @@
                                 @click="setActiveContact(index)"
                             >
                                 <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
-                                {{contact.name}}  
+                                <div class="contact_name">
+                                    {{contact.name}} 
+                                    
+                                </div> 
+                                <span class="last_message">{{ getLastMessageTextFromContact(index) }}</span>
+                                <span class="last_message_date">{{ getActiveContactLastMessageDate(index) }}</span>
+                                
                             </li>
                         </ul>
                     </div>
@@ -121,8 +127,10 @@
                             <div class="user_name">
                                 <div class="text">
                                     {{contacts[activeContact].name}}
+                                    
                                 </div>
-                                <span>Ultimo accesso oggi alle </span>
+                                <span v-if="contacts[activeContact].messages.length > 0">Ultimo accesso: {{ getActiveContactLastMessageDate(activeContact) }}</span>
+                                <span v-else>Online </span>
                             </div>
                             <!--Fine Nome utente-->
                         </div>
@@ -141,7 +149,18 @@
 
                     <!--MESSAGGI CHAT-->
                     <div class="chat_msg clearfix">
-                        <div v-for="message in contacts[activeContact].messages" class="message_chat" :class="message.status">
+                        <div v-for="(message, index) in contacts[activeContact].messages" class="message_chat" :class="message.status">
+
+                            <div class="arrow" @click="toggleOptionsDropdown(index)">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+
+                            <div v-if="activeMessage === index" class="options_message">
+                                <ul>
+                                    <li>Message Info</li>
+                                    <li @click="deleteMessage(index)">Delete Message</li>
+                                </ul>
+                            </div>
                             <div class="message-text ">
                                 {{message.text}}
                             </div>

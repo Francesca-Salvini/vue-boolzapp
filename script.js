@@ -9,6 +9,7 @@ var app = new Vue (
             userNewValue : '',
             userFilter :'',
             activeContact : 0,
+            activeMessage : false, // di default non visualizza nessuna dropdown
             contacts: [
                 {
                     name: 'Michele',
@@ -100,6 +101,7 @@ var app = new Vue (
             // Al click, la chat cliccata diventa attiva, noi possiamo vedere lo storico dei messaggi con quel contatto
             setActiveContact(index){
                 this.activeContact = index;
+                this.activeMessage = false;
             },
         
             // Aggiunge un nuovo messaggio alla chat (appare come 'sent'(inviato))
@@ -131,7 +133,11 @@ var app = new Vue (
                 // una volta "inviato" il messaggio, la input verrà resettata
                 this.userNewValue = '';
 
-                console.log(this);
+                // per evitare che la risposta arrivi da un altro utente 
+                // se in meno di un secondo cambio chat dopo aver inviato un messaggio
+                const sentMessageActiveContact = this.activeContact;
+
+                
                 // dopo 1 secondo appare la risposta di default del contatto a cui si è inviato il messaggio
                 setTimeout(() => {
                     console.log(this);
@@ -143,7 +149,7 @@ var app = new Vue (
 
                     console.log(newDefaultAnswer);
                     // pusho il nuovo oggetto messaggio nell'array messages dentro contacts
-                    this.contacts[this.activeContact].messages.push(newDefaultAnswer);
+                    this.contacts[sentMessageActiveContact].messages.push(newDefaultAnswer);
                 }, 1000);
             },
 
@@ -161,6 +167,42 @@ var app = new Vue (
                         element.visible = false;
                     }
                 } )
+            },
+
+            // Mostra o no la dropdown accanto a un messaggio
+            toggleOptionsDropdown(msgIndex) {
+                if( this.activeMessage === msgIndex) {
+                    this.activeMessage = false;
+                } else {
+                    this.activeMessage = msgIndex;
+                }
+                
+            },
+
+            // Cancella un messaggio specifico dai messaggi dell'utente attivo
+            deleteMessage(msgIndex) {
+                this.contacts[this.activeContact].messages.splice(msgIndex,1);
+                this.activeMessage = false;
+
+            },
+            getActiveContactLastMessageDate() {
+                const activeContactMsg = this.contacts[this.activeContact].messages;
+                return activeContactMsg[activeContactMsg.length - 1].date;
+            },
+
+            getLastMessageTextFromContact(contactIndex) {
+                const contactMessages = this.contacts[contactIndex].messages;
+                console.log(contactMessages);
+                const contactLastMessage = contactMessages[contactMessages.length -1].text;
+                console.log(contactLastMessage);
+
+                let textToPrint = contactLastMessage.slice(0, 30);
+
+                if( textToPrint.length >= 30) {
+                    textToPrint += '...';
+                }
+
+                return textToPrint;
             }
         }
 
