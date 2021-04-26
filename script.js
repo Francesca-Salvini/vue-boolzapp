@@ -97,10 +97,13 @@ var app = new Vue (
             
         } ,
         methods: {
+            // Al click, la chat cliccata diventa attiva, noi possiamo vedere lo storico dei messaggi con quel contatto
             setActiveContact(index){
                 this.activeContact = index;
             },
         
+            // Aggiunge un nuovo messaggio alla chat (appare come 'sent'(inviato))
+            // Dopo un secondo si riceve una risposta di default ('ok', che appare come 'received' (ricevuto))
             addNewMessage() {
                 
                 
@@ -108,7 +111,9 @@ var app = new Vue (
                 // se l'utente non compila ma clicca il tasto enter, non succede nulla (non pusha)
                 if(this.userNewValue.length > 0 ){
                     
-                    
+                    // creo un nuovo oggetto messaggio con data corrente e stato 'sent' (inviato)
+                    // il messaggio proviene dal v-model nell'HTML, e corrisponde alla stringa inserita dall'utente
+                    // nell'apposita input
                     
                     const newMessageObj = {
                     
@@ -118,13 +123,16 @@ var app = new Vue (
                     }
 
                     console.log(newMessageObj);
+                    // pusho il nuovo oggetto messaggio nell'array messages dentro contacts
                     this.contacts[this.activeContact].messages.push(newMessageObj);
 
                 }
             
+                // una volta "inviato" il messaggio, la input verrà resettata
                 this.userNewValue = '';
 
                 console.log(this);
+                // dopo 1 secondo appare la risposta di default del contatto a cui si è inviato il messaggio
                 setTimeout(() => {
                     console.log(this);
                     const newDefaultAnswer = {
@@ -134,10 +142,12 @@ var app = new Vue (
                     }
 
                     console.log(newDefaultAnswer);
+                    // pusho il nuovo oggetto messaggio nell'array messages dentro contacts
                     this.contacts[this.activeContact].messages.push(newDefaultAnswer);
                 }, 1000);
             },
 
+            // Filtra i contatti in base alla barra di ricerca (sezione a sinistra)
             filterContacts() {
                 this.contacts.forEach((element) => {
                     
