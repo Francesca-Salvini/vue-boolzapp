@@ -4,6 +4,7 @@ var app = new Vue (
         data: {
             
             userNewValue : '',
+            userFilter :'',
             activeContact : 0,
             contacts: [
                 {
@@ -133,6 +134,23 @@ var app = new Vue (
                     this.contacts[this.activeContact].messages.push(newDefaultAnswer);
                 }, 1000);
             },
+
+            filterContacts() {
+                this.contacts.forEach((element) => {
+                    
+                    // se la stringa userFilter è compresa nel name dei contacts 
+                    if( element.name.toLowerCase().includes(this.userFilter.toLowerCase())) {
+                        // visible = true
+                        element.visible = true;
+                        
+                    } else {
+                        // visible = false
+                        element.visible = false;
+                    }
+                } )
+
+                
+            }
         }
 
         

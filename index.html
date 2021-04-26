@@ -75,7 +75,7 @@
                     <div class="search">
                         <span class="icons"><i class="fas fa-search"></i></span>
                         
-                        <input value="" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="userFilter" value="" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts">
                     </div>
                     
                     <!--Fine Cerca o inizia nuova chat-->
