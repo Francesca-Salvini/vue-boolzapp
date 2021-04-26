@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*jshint esversion: 9 */
+
 var app = new Vue (
     {
         el : '#root',
@@ -148,8 +151,6 @@ var app = new Vue (
                         element.visible = false;
                     }
                 } )
-
-                
             }
         }
 
