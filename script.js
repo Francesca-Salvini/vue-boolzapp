@@ -185,8 +185,8 @@ var app = new Vue (
                 this.activeMessage = false;
 
             },
-            getActiveContactLastMessageDate() {
-                const activeContactMsg = this.contacts[this.activeContact].messages;
+            getActiveContactLastMessageDate(index) {
+                const activeContactMsg = this.contacts[index].messages;
                 return activeContactMsg[activeContactMsg.length - 1].date;
             },
 
